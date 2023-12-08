@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
 
+wget http://ftp.gnu.org/gnu/libc/glibc-2.28.tar.gz
+tar -xvf glibc-2.28.tar.gz
+cd glibc-2.28
+mkdir build 
+mkdir glibc-2.28-install
+cd build
+~/glibc/glibc-2.28/configure --prefix=$HOME/glibc/glibc-2.28-install
+make -j
+make install
+
 GODOT_VERSION=$1
 GUT_PARAMS=$2
 PROJECT_PATH=$3
