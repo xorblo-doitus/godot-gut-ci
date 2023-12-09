@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-ldd --version
-/lib/x86_64-linux-gnu/libc.so.6
-
 GODOT_VERSION=$1
 GUT_PARAMS=$2
 PROJECT_PATH=$3
@@ -16,11 +13,11 @@ is_version_4=$( [[ $GODOT_VERSION == 4* ]] && echo "true" || echo "false" )
 if [[ $is_version_4 == "true" ]]; then
   echo "Downloading Godot4"
 
-  wget https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip
+  wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
 
   # Unzip it
-  unzip Godot_v${GODOT_VERSION}_linux.x86_64.zip
-  mv Godot_v${GODOT_VERSION}_linux.x86_64 $GODOT_BIN
+  unzip Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
+  mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 $GODOT_BIN
   GODOT_PARAMS="--headless"
 else
   echo "Downloading Godot3"
