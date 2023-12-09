@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+ldd --version
+/lib/x86_64-linux-gnu/libc.so.6
+
 wget http://ftp.gnu.org/gnu/libc/glibc-2.28.tar.gz
 tar -xvf glibc-2.28.tar.gz
 cd glibc-2.28
@@ -10,6 +13,9 @@ cd build
 ~/glibc/glibc-2.28/configure --prefix=$HOME/glibc/glibc-2.28-install
 make -j
 make install
+
+ldd --version
+/lib/x86_64-linux-gnu/libc.so.6
 
 GODOT_VERSION=$1
 GUT_PARAMS=$2
