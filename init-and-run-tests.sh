@@ -34,6 +34,9 @@ if [[ -n $PROJECT_PATH ]]; then
   cd $PROJECT_PATH
 fi
 
+echo Starting editor to build .godot folder
+$GODOT_BIN -e --headless --path $PWD
+
 echo Running GUT tests using params:
 echo "  -> $GUT_PARAMS"
 
