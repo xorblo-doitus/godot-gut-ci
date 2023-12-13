@@ -34,7 +34,7 @@ if [[ -n $PROJECT_PATH ]]; then
   cd $PROJECT_PATH
 fi
 
-if ! test -f ./.godot/global_script_class_cache.cfg; then
+if is_version_4 && ! test -f ./.godot/global_script_class_cache.cfg ; then
   echo Starting editor to build .godot folder
   
   $GODOT_BIN -e --headless --path $PWD --quit-after 10 & godotpid=$!
