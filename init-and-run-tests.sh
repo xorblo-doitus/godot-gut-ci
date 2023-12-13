@@ -37,7 +37,7 @@ fi
 if is_version_4 && ! test -f ./.godot/global_script_class_cache.cfg ; then
   echo Starting editor to build .godot/global_script_class_cache.cfg
   
-  $GODOT_BIN -e --headless --path $PWD --quit-after 10 & godotpid=$!
+  $GODOT_BIN -e --headless --path $PWD & godotpid=$!
   
   while ! test -f ./.godot/global_script_class_cache.cfg; do sleep 0.1s; done
   kill $godotpid
