@@ -34,8 +34,12 @@ if [[ -n $PROJECT_PATH ]]; then
   cd $PROJECT_PATH
 fi
 
-echo Starting editor to build .godot folder
-$GODOT_BIN -e --headless --path $PWD --quit-after 10
+if ! test -f ./.godot/global_script_class_cache.cfg; then
+  echo Starting editor to build .godot folder
+  $GODOT_BIN -e --headless --path $PWD --quit-after 10 & godotpid=$!
+  while ! test -f ./.godot/global_script_class_cache.cfg; do sleep 0.1s; done
+  kill $godotpid
+fi
 
 echo Running GUT tests using params:
 echo "  -> $GUT_PARAMS"
