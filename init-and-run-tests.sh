@@ -40,6 +40,7 @@ if is_version_4 && ! test -f ./.godot/global_script_class_cache.cfg ; then
   $GODOT_BIN -e --headless --path $PWD & godotpid=$!
   
   while ! test -f ./.godot/global_script_class_cache.cfg; do sleep 0.1s; done
+  sleep 0.1s
   kill $godotpid
   
   echo .godot/global_script_class_cache.cfg created
