@@ -38,7 +38,7 @@ fi
 if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.cfg ; then
   echo Starting editor to build .godot/global_script_class_cache.cfg
 
-  timeout $EDITOR_RUNTIME --preserve-status $GODOT_BIN -e --headless --path $PWD
+  timeout --preserve-status $EDITOR_RUNTIME $GODOT_BIN -e --headless --path $PWD
 
   # TEMP_OUTPUT=/tmp/godot.log
   
