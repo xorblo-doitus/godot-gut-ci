@@ -41,9 +41,9 @@ if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.c
 
   FILE_COUNT=$(find ./.godot -type f | wc -l)
   while [[ ! ( (-f "./.godot/global_script_class_cache.cfg") && ($FILE_COUNT==$(find ./.godot -type f | wc -l)) ) ]]; do
-    echo $FILE_COUNT;
+    echo Number of files in .godot/: $FILE_COUNT;
     FILE_COUNT=$(find ./.godot -type f | wc -l);
-    sleep 2s;
+    sleep 7s;
   done
   sleep 0.1s
   kill $godotpid
