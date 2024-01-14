@@ -39,7 +39,8 @@ fi
 if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.cfg ; then
   echo Starting editor to build .godot/global_script_class_cache.cfg
 
-  for N in `seq 1 $EDITOR_RUNS` do
+  for i in `seq 1 $EDITOR_RUNS`
+  do
     $GODOT_BIN -e --headless --path $PWD | tee $TEMP_OUTPUT & godotpid=$!
 
     # TEMP_OUTPUT=/tmp/godot.log
