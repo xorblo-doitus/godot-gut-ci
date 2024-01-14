@@ -45,7 +45,7 @@ fi
 #  
 #  echo .godot/global_script_class_cache.cfg created
 #fi
-$GODOT_BIN --editor --path $PWD -s --check-only
+$GODOT_BIN --editor --headless --path $PWD --quit
 
 echo Running GUT tests using params:
 echo "  -> $GUT_PARAMS"
