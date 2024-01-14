@@ -19,7 +19,11 @@ inputs:
   import_runtime:
     description: 'The time (in seconds) during the editor will be running to import all resources'
     required: false
-    default: 25
+    default: 10
+  import_runs:
+    description: 'The number of time the editor will be run to import resources.'
+    required: false
+    default: 2
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -28,3 +32,4 @@ runs:
     - ${{ inputs.gut_params }}
     - ${{ inputs.project_path }}
     - ${{ inputs.import_runtime }}
+    - ${{ inputs.import_runs }}
