@@ -16,6 +16,10 @@ inputs:
     description: 'The project path. To be specified only if is not in the root folder'
     required: false
     default: ''
+  import_runtime:
+    description: 'The time (in seconds) during the editor will be running to import all resources'
+    required: false
+    default: 25
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,3 +27,4 @@ runs:
     - ${{ inputs.godot_version }}
     - ${{ inputs.gut_params }}
     - ${{ inputs.project_path }}
+    - ${{ inputs.import_runtime }}
