@@ -43,7 +43,7 @@ if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.c
 
   FILE_COUNT=$(find ./.godot -type f | wc -l)
   LAST_OUTPUT=$(cat $TEMP_OUTPUT | wc -l)
-  while [[ ! ( (-f "./.godot/global_script_class_cache.cfg") && ($FILE_COUNT==$(find ./.godot -type f | wc -l)) && ($(cat $TEMP_OUTPUT | wc -l)==$LAST_OUTPUT) ]]; do
+  while [[ ! ( (-f "./.godot/global_script_class_cache.cfg") && ($FILE_COUNT==$(find ./.godot -type f | wc -l)) && ($(cat $TEMP_OUTPUT | wc -l)==$LAST_OUTPUT) ) ]]; do
     echo Number of files in .godot/: $FILE_COUNT;
     echo Number of lines iin output: $LAST_OUTPUT;
     FILE_COUNT=$(find ./.godot -type f | wc -l);
