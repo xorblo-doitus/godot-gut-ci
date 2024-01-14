@@ -34,17 +34,18 @@ if [[ -n $PROJECT_PATH ]]; then
   cd $PROJECT_PATH
 fi
 
-if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.cfg ; then
-  echo Starting editor to build .godot/global_script_class_cache.cfg
-  
-  $GODOT_BIN -e --headless --path $PWD & godotpid=$!
-  
-  while ! test -f ./.godot/global_script_class_cache.cfg; do sleep 0.1s; done
-  sleep 0.1s
-  kill $godotpid
-  
-  echo .godot/global_script_class_cache.cfg created
-fi
+#if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.cfg ; then
+#  echo Starting editor to build .godot/global_script_class_cache.cfg
+#  
+#  $GODOT_BIN -e --headless --path $PWD & godotpid=$!
+#  
+#  while ! test -f ./.godot/global_script_class_cache.cfg; do sleep 0.1s; done
+#  sleep 0.1s
+#  kill $godotpid
+#  
+#  echo .godot/global_script_class_cache.cfg created
+#fi
+$GODOT_BIN --editor --path $PWD --quit
 
 echo Running GUT tests using params:
 echo "  -> $GUT_PARAMS"
