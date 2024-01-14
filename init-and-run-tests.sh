@@ -40,7 +40,7 @@ if [ $is_version_4 == "true" ] && ! test -f ./.godot/global_script_class_cache.c
   $GODOT_BIN -e --headless --path $PWD & godotpid=$!
 
   FILE_COUNT=$(find ./.godot -type f | wc -l)
-  while [[ ! (-f "./.godot/global_script_class_cache.cfg") && ($FILE_COUNT==$(find ./.godot -type f | wc -l)) ) ]]; do
+  while [[ ! ( (-f "./.godot/global_script_class_cache.cfg") && ($FILE_COUNT==$(find ./.godot -type f | wc -l)) ) ]]; do
     echo $FILE_COUNT;
     sleep 2s;
     FILE_COUNT=$(find ./.godot -type f | wc -l);
